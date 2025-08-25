@@ -1,0 +1,27 @@
+/* Uses many styles from EditTransactionModal.css, but adds specifics */
+.export-option {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.export-option:last-of-type {
+  border-bottom: none;
+}
+.export-option label {
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+.export-option select,
+.date-range-picker input {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+.date-range-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

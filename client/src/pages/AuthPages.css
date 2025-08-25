@@ -1,0 +1,312 @@
+.auth-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.auth-art-section {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.auth-art-section img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.auth-art-section h2 {
+  font-size: 1.8rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.auth-art-section p {
+  font-size: 1rem;
+  color: #6c757d;
+  max-width: 400px;
+}
+
+/* The right side with the form */
+.auth-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+}
+
+.auth-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+.auth-form .form-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-form .form-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-form .form-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .auth-page-container {
+    grid-template-columns: 1fr;
+  }
+  .auth-art-section {
+    display: none; /* Hide the art section on small screens */
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to the left art section */
+.auth-art-section {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/*  Apply the animation to the right form section with a delay */
+.auth-form-section {
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.auth-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden; /* Prevents scrollbars from animation */
+}
+
+/* --- Left Side (Art Section) --- */
+.auth-art-section {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.auth-art-section img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.auth-art-section h2 {
+  font-size: 1.8rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.auth-art-section p {
+  font-size: 1rem;
+  color: #6c757d;
+  max-width: 400px;
+}
+
+/* --- Right Side (Form Section) --- */
+.auth-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+}
+
+.auth-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Google Button and Separator */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #adb5bd;
+  margin: 1.5rem 0;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+.google-btn {
+  background-color: #fff !important;
+  color: #495057 !important;
+  border: 1px solid #ced4da !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa !important;
+}
+
+.auth-form .form-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-form .form-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-form .form-link a:hover {
+  text-decoration: underline;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+
+/* For Tablets (e.g., iPads) */
+@media (max-width: 992px) {
+  .auth-page-container {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  .auth-form {
+    max-width: 420px;
+  }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+  .auth-page-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .auth-art-section {
+    display: none;
+  }
+
+  .auth-form-section {
+    padding: 2rem 1rem;
+  }
+}
