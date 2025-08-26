@@ -21,6 +21,8 @@ const corsOptions = {
     'http://localhost:5174', 
     // This is my online client app URL 
     'https://fintrack-mern-app-shiv-patel-s-projects.vercel.app',
+    'https://fintrack-mern-app-git-main-shiv-patel-s-projects.vercel.app/',
+    'https://fintrack-mern-8tlyjye4c-shiv-patel-s-projects.vercel.app/'
   ],
   credentials: true, 
 };
