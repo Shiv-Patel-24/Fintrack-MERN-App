@@ -1,4 +1,3 @@
-import { concurrently } from "concurrently";
 import Transaction from "../models/Transaction.js";
 import { Parser } from "json2csv";
 
@@ -216,3 +215,4 @@ export const exportTransactions = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
