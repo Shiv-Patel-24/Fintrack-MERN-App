@@ -24,6 +24,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a1b1419652c99fa69cf88663685f294191f7299
 
 app.use(express.json());
 app.use(cookieParser());
@@ -40,4 +44,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+
 });
