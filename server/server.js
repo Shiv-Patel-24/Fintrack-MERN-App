@@ -19,15 +19,13 @@ const corsOptions = {
   origin: [
     'http://localhost:5173', 
     'http://localhost:5174', 
+    // This is my online client app URL 
+    'https://fintrack-mern-app-shiv-patel-s-projects.vercel.app',
   ],
   credentials: true, 
 };
 
 app.use(cors(corsOptions));
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a1b1419652c99fa69cf88663685f294191f7299
 
 app.use(express.json());
 app.use(cookieParser());
