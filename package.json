@@ -2,17 +2,15 @@
     "name": "income-tracker-app",
     "version": "1.0.0",
     "scripts": {
-      "server": "npm run dev --prefix server",
-      "client": "npm run dev --prefix client",
-      "admin": "npm run dev --prefix admin",
-      "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
+        "server": "npm run dev --prefix server",
+        "client": "npm run dev --prefix client",
+        "admin": "npm run dev --prefix admin",
+        "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
     },
     "devDependencies": {
         "concurrently": "^8.2.2"
     },
     "dependencies": {
-        "axios": "^1.11.0",
         "json2csv": "^6.0.0-alpha.2"
     }
 }
-
