@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import passport from 'passport';
 import cookieParser from 'cookie-parser'; 
 import connectDB from './config/db.js';
@@ -10,21 +10,21 @@ import userRoutes from './routes/user.js';
 import transactionRoutes from './routes/transactions.js';
 import adminRoutes from './routes/admin.js';
 
-dotenv.config();
+// dotenv.config();
 connectDB();
 
 const app = express();
 
 const corsOptions = {
   origin: [
-    // This is my online client app URL 
-    'https://fintrack-mern-app-shiv-patel-s-projects.vercel.app',
-    'https://fintrack-mern-8tlyjye4c-shiv-patel-s-projects.vercel.app/',
-    'https://fintrack-mern-app-git-main-shiv-patel-s-projects.vercel.app/',
-
+    
     // This is my local client app URL
     'http://localhost:5173', 
     'http://localhost:5174', 
+
+    // This is my online client app URL 
+    'https://fintrack-mern-app.vercel.app',
+    'https://fintrack-mern-app-git-main-shiv-patel-s-projects.vercel.app',
   ],
   credentials: true, 
 };
