@@ -49,7 +49,7 @@ router.get(
       maxAge: 24 * 60 * 60 * 1000,
     });
     // Redirect to the frontend dashboard
-    res.redirect("http://localhost:5173/dashboard");
+    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
   }
 );
 
