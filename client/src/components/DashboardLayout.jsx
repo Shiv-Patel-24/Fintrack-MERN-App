@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar.jsx";
 import Footer from "./Footer.jsx";
 import Navbar from "./Navbar.jsx";
 import Spinner from "./Spinner.jsx"; 
+import MobileNavbar from "./MobileNavbar.jsx";
 import api from "../services/api.js";
 import "./DashboardLayout.css";
 
