@@ -21,6 +21,7 @@ export const registerUser = async (req, res) => {
 };
 
 export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
   try {
     const user = await User.findOne({ email: req.body.email }).select(
       "+password"
@@ -37,7 +38,9 @@ export const loginUser = async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      // secure: process.env.NODE_ENV === "production",
+      secure : true, //Always true for deployment sites 
+      sameSite : 'none', //This si the crucial for cross-site cookies 
       maxAge: 24 * 60 * 60 * 1000,
     });
 

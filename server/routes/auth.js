@@ -17,6 +17,8 @@ router.post("/login", validate(loginSchema), loginUser);
 router.post("/logout", (req, res) => {
   res.cookie("token", "", {
     httpOnly: true,
+    secure : true, //Always true for deployment sites 
+    sameSite : 'none', //This si the crucial for cross-site cookies 
     expires: new Date(0),
   });
   res.status(200).json({ message: "Logout successful" });
@@ -45,7 +47,9 @@ router.get(
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      // secure: process.env.NODE_ENV === "production",
+      secure : true, //Always true for deployment sites 
+      sameSite : 'none', //This si the crucial for cross-site cookies 
       maxAge: 24 * 60 * 60 * 1000,
     });
     // Redirect to the frontend dashboard
