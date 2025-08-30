@@ -17,12 +17,14 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://localhost:5173', 
-    'http://localhost:5174', 
     // This is my online client app URL 
     'https://fintrack-mern-app-shiv-patel-s-projects.vercel.app',
     'https://fintrack-mern-8tlyjye4c-shiv-patel-s-projects.vercel.app/',
     'https://fintrack-mern-app-git-main-shiv-patel-s-projects.vercel.app/',
+
+    // This is my local client app URL
+    'http://localhost:5173', 
+    'http://localhost:5174', 
   ],
   credentials: true, 
 };
