@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import api from "../services/api.js";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 import TransactionForm from "../components/TransactionForm.jsx";
 import TransactionList from "../components/TransactionList.jsx";
@@ -12,7 +13,8 @@ import Spinner from "../components/Spinner.jsx";
 import "./Dashboard.css";
 
 function Dashboard() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const { user } = useOutletContext(); //get users data from the parent layout
   const [transactions, setTransactions] = useState([]);
   const [monthlyStats, setMonthlyStats] = useState({
     balance: 0,
@@ -29,22 +31,22 @@ function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    setLoading(true);
-    api
-      .get("/user/profile")
-      .then((res) => setUser(res.data.user))
-      .catch((err) => {
-        if (err.response && err.response.status === 401) {
-          navigate("/login");
-        }
-      })
-      .finally(() => setLoading(false));
-  }, [navigate]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   api
+  //     .get("/user/profile")
+  //     .then((res) => setUser(res.data.user))
+  //     .catch((err) => {
+  //       if (err.response && err.response.status === 401) {
+  //         navigate("/login");
+  //       }
+  //     })
+  //     .finally(() => setLoading(false));
+  // }, [navigate]);
 
   const fetchTransactions = useCallback(async () => {
     if (user) {
@@ -136,9 +138,9 @@ function Dashboard() {
     return <div>Loading...</div>;
   }
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   const yearOptions = Array.from(
     { length: 5 },
@@ -203,7 +205,7 @@ function Dashboard() {
             <h2>This Month's Summary</h2>
             <div className="chart-container">
               <SummaryChart
-                // key={`${selectedYear}-${selectedMonth}-${typeFilter}`}
+                key={`${selectedYear}-${selectedMonth}-${typeFilter}`}
                 totalIncome={monthlyStats.totalIncome}
                 totalExpense={monthlyStats.totalExpense}
               />
