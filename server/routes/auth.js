@@ -1,28 +1,37 @@
-import express from "express";
-import passport from "passport";
-import jwt from "jsonwebtoken";
-import { registerUser, loginUser } from "../controllers/authController.js";
+import express from 'express';
+import passport from 'passport';
+import jwt from 'jsonwebtoken';
+import { registerUser, loginUser } from '../controllers/authController.js';
 import {
   validate,
   registerSchema,
   loginSchema,
-} from "../middleware/validationMiddleware.js";
+} from '../middleware/validationMiddleware.js';
 
 const router = express.Router();
 
-router.post("/register", validate(registerSchema), registerUser);
+router.post('/register', validate(registerSchema), registerUser);
+router.post('/login', validate(loginSchema), loginUser);
 
-router.post("/login", validate(loginSchema), loginUser);
+router.post('/logout', (req, res) => {
+  res.cookie('token', '', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    expires: new Date(0),
+  });
+  res.status(200).json({ message: 'Logout successful' });
+});
 
 router.get(
-  "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  '/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login",
+  '/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/login',
     session: false,
   }),
   (req, res) => {
@@ -32,29 +41,17 @@ router.get(
       role: req.user.role,
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: "1d",
+      expiresIn: '1d',
     });
 
-    res.cookie("token", token, {
+    res.cookie('token', token, {
       httpOnly: true,
-      // secure: process.env.NODE_ENV === "production",
-      secure: true, //Always true for deployment sites 
-      sameSite: 'none', //This si the crucial for cross-site cookies 
+      secure: true,
+      sameSite: 'none',
       maxAge: 24 * 60 * 60 * 1000,
     });
-    // Redirect to the frontend dashboard
     res.redirect(`${process.env.CLIENT_URL}/dashboard`);
   }
 );
-
-router.post("/logout", (req, res) => {
-  res.cookie("token", "", {
-    httpOnly: true,
-    secure: true, //Always true for deployment sites 
-    sameSite: 'none', //This is the crucial for cross-site cookies 
-    expires: new Date(0),
-  });
-  res.status(200).json({ message: "Logout successful" });
-});
 
 export default router;

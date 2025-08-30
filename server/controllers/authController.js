@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
 };
 
 export const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  // const { email, password } = req.body;
   try {
     const user = await User.findOne({ email: req.body.email }).select(
       "+password"
