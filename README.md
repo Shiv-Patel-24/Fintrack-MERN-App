@@ -1,5 +1,7 @@
 # FinTrack - MERN Stack Financial Tracker 📊
 
+## Live : fintrack-mern-app.vercel.app
+
 FinTrack is a comprehensive, full-stack web application built with the MERN stack (MongoDB, Express.js, React, Node.js) designed to help business owners and individuals track their income and expenses effortlessly. It features a secure, modern user dashboard and a powerful admin panel for complete platform management.
 
 This project was built from the ground up, focusing on a clean architecture, robust security, and a polished, responsive user interface.
