@@ -4,6 +4,8 @@ import api from "../services/api.js";
 import { useIntroAnimation } from "../hooks/useIntroAnimation.js";
 import "./AuthPages.css";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -32,7 +34,8 @@ function Login() {
 
   const handleGoogleLogin = () => {
     // window.location.href = "http://localhost:5000/api/auth/google";
-    window.location.href = 'https://fintrack-server-jgws.onrender.com/api/auth/google';
+    window.location.href = '${API_URL}/api/auth/google';   
+                            // https://fintrack-server-jgws.onrender.com
   };
 
   return (

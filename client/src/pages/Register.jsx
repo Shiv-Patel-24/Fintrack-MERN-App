@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api.js";
 import "./AuthPages.css";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 function Register() {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,8 +38,9 @@ function Register() {
 
   // Add the Google login handler
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
-    window.location.href = 'https://fintrack-server-jgws.onrender.com/api/auth/google';
+    // window.location.href = "http://localhost:5000/api/auth/google";
+    // window.location.href = 'https://fintrack-server-jgws.onrender.com/api/auth/google';
+    window.location.href = `${API_URL}/api/auth/google`;
   };
 
   return (
