@@ -11,7 +11,6 @@ This project was built from the ground up, focusing on a clean architecture, rob
 ### User Dashboard
 
 * **Secure Authentication:** Local email/password registration and login, plus "Sign in with Google" OAuth 2.0.
-* **Password Reset:** Secure "Forgot Password" flow using email verification.
 * **Transaction Management:** Full CRUD (Create, Read, Update, Delete) functionality for income and expense records.
 * **Interactive Dashboard:** A central hub to view key financial metrics.
 * **Data Visualization:** A dynamic pie chart summarizing monthly income vs. expenses.
