@@ -40,7 +40,6 @@ This project was built from the ground up, focusing on a clean architecture, rob
 * **Animations:** CSS Animations
 * **API Client:** Axios
 * **CSV Export:** `json2csv`
-* **Emailing:** Nodemailer (for password reset)
 
 ## 🚀 Getting Started
 
